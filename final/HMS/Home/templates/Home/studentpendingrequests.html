@@ -1,6 +1,7 @@
 {% extends 'Home/studentbase.html' %}
 {% load static %}
 {% block content %}
+<div style="margin : 100px">
 <div class="col-md-7">
 		<h5>Pending Requests</h5>
 		<hr>
@@ -22,7 +23,7 @@
 						<td>{{order.in_datetime }}</td>
 						<td>{{ order.status }}</td>
 
-						<td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleterequest' order.id %}">Delete</a></td>
 
 					</tr>
 				{% endfor %}
@@ -31,7 +32,7 @@
 			</table>
 		</div>
 	</div>
-
+</div>
 
 
 
