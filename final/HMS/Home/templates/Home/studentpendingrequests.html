@@ -1,0 +1,38 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-7">
+		<h5>Pending Requests</h5>
+		<hr>
+		<div class="card card-body">
+
+			<table class="table table-sm">
+				<tr>
+					<th>Type</th>
+					<th>Date leaving</th>
+					<th>Date Arriving</th>
+					<th>status</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for order in pending %}
+					<tr>
+						<td>{{order.type }}</td>
+						<td>{{order.out_datetime }}</td>
+						<td>{{order.in_datetime }}</td>
+						<td>{{ order.status }}</td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	</div>
+
+
+
+
+{% endblock content %}
