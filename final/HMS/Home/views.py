@@ -244,9 +244,18 @@ def studentupdateprofile(request,pk):
 def studentpendingrequests(request,pk):
     student = Student.objects.get(rollno=pk)
     pending = student.appeal_set.filter(status='pending')
-    context = {'pending': pending }
+    context = {'student': student , 'pending': pending }
     return render(request,'Home/studentpendingrequests.html',context)
+@allowed_users(allowed_roles=['student'])
+def deleterequest(request,pk):
+    student=Student.objects.get(user=request.user)
+    appeal = Appeal.objects.get(id=pk)
+    if request.method == "POST":
+        appeal.delete()
+        return redirect('/')
 
+    context = {'item': appeal,'student':student}
+    return render(request,'Home/deleterequest.html',context)
 
 
 

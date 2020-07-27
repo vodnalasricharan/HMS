@@ -1,8 +1,9 @@
 {% extends 'Home/studentbase.html' %}
 {% load static %}
 {% block content %}
+<div style="margin : 100px">
 <div class="col-md-7">
-		<h5>Pending Requests</h5>
+		<h1>Pending Requests</h1>
 		<hr>
 		<div class="card card-body">
 
@@ -13,16 +14,17 @@
 					<th>Date Arriving</th>
 					<th>status</th>
 					<th>Remove</th>
+
 				</tr>
 
-				{% for order in pending %}
+				{% for request in pending %}
 					<tr>
-						<td>{{order.type }}</td>
-						<td>{{order.out_datetime }}</td>
-						<td>{{order.in_datetime }}</td>
-						<td>{{ order.status }}</td>
+						<td>{{request.type }}</td>
+						<td>{{request.out_datetime }}</td>
+						<td>{{request.in_datetime }}</td>
+						<td>{{ request.status }}</td>
 
-						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleterequest' request.id %}">Delete</a></td>
 
 					</tr>
 				{% endfor %}
@@ -31,7 +33,7 @@
 			</table>
 		</div>
 	</div>
-
+</div>
 
 
 

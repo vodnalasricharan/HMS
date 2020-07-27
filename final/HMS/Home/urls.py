@@ -18,6 +18,7 @@ urlpatterns = [
     path('student_profile/<str:pk>/',views.studentprofile,name='studentprofile'),
     path('student_update_profile/<str:pk>/',views.studentupdateprofile,name='studentupdateprofile'),
     path('student_pending_requests/<str:pk>/',views.studentpendingrequests,name='studentpendingrequests'),
+    path('delete_request/<str:pk>/',views.deleterequest,name='deleterequest'),
     path('caretaker_profile/<str:pk>/',views.caretakerprofile,name='caretakerprofile'),
     path('caretaker_update_profile/<str:pk>/',views.caretakerupdateprofile,name='caretakerupdateprofile'),
     path('HM_profile/<str:pk>/',views.HMprofile,name='HMprofile'),
