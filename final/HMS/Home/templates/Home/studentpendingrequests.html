@@ -1,9 +1,8 @@
 {% extends 'Home/studentbase.html' %}
 {% load static %}
 {% block content %}
-<div style="margin : 100px">
 <div class="col-md-7">
-		<h1>Pending Requests</h1>
+		<h5>Pending Requests</h5>
 		<hr>
 		<div class="card card-body">
 
@@ -14,7 +13,6 @@
 					<th>Date Arriving</th>
 					<th>status</th>
 					<th>Remove</th>
-
 				</tr>
 
 				{% for request in pending %}
@@ -33,7 +31,7 @@
 			</table>
 		</div>
 	</div>
-</div>
+
 
 
 
