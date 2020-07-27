@@ -15,14 +15,14 @@
 					<th>Remove</th>
 				</tr>
 
-				{% for order in pending %}
+				{% for request in pending %}
 					<tr>
-						<td>{{order.type }}</td>
-						<td>{{order.out_datetime }}</td>
-						<td>{{order.in_datetime }}</td>
-						<td>{{ order.status }}</td>
+						<td>{{request.type }}</td>
+						<td>{{request.out_datetime }}</td>
+						<td>{{request.in_datetime }}</td>
+						<td>{{ request.status }}</td>
 
-						<td><a class="btn btn-sm btn-danger" href="{% url 'deleterequest' order.id %}">Delete</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleterequest' request.id %}">Delete</a></td>
 
 					</tr>
 				{% endfor %}
