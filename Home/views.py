@@ -540,7 +540,7 @@ def viewrequest(request,pk):
             appeal.staff= crname
             qrcode_img = qrcode.make('http://'+str(request.META['HTTP_HOST'])+'/security_check/'+str(appeal.id))
             fname=str(appeal.id)+'.png'
-            qrcode_img.save(settings.STATIC_ROOT+'/qr_codes/'+fname)
+            qrcode_img.save(settings.MEDIA_ROOT+'/qr_codes/'+fname)
             appeal.qr_code='qr_codes/'+fname
             appeal.save()
         return redirect('/')
