@@ -1,0 +1,27 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block content %}
+<h3>Contact Us</h3>
+<div style="margin : 80px ">
+	<div class="container">
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+<form method="post">
+    {% for message in messages %}
+			{% if message.tags == 'success' %}
+			<div class="alert alert-success" role="alert">
+ 				{{message}}
+			</div>
+			{% else %}
+			<div class="alert alert-danger" role="alert">
+ 				{{message}}
+			</div>
+			{% endif %}
+	{% endfor %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" name="Submit">
+</form>
+		</div></div></div></div></div>
+{% endblock content %}

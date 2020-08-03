@@ -1,0 +1,28 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+<div style="margin : 100px">
+    <br>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+
+			<p>Are you sure you want to delete "{{item.out_datetime}}"?</p>
+
+			<form action="{% url 'deleterequest' item.id  %}" method="POST">
+
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'Home' %}">Cancel</a>
+
+				<input class="btn btn-danger" type="submit" name="confirm" value="Delete">
+			</form>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+
+{% endblock content %}
