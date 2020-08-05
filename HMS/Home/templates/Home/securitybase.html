@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>JNTUH-CEJ | SECURITY PORTAL</title>
+<link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+<link rel="stylesheet" href="{% static '/css/styles.min.css' %}">
+<link rel="shortcut icon" href="{% static '/images/jntuhlogo.png' %}" >
+</head>
+
+<body>
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+
+{% if request.user.is_authenticated %}
+<div class="container"><a class="navbar-brand logo" href="#" style="margin-left:-11px">JNTUH-CEJ | SECURITY PORTAL</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item" role="presentation" ><a class="nav-link" href="{% url 'logout' %}">Logout</a></li></ul>
+</div>
+</div>
+
+{% else %}
+
+<div class="container"><a class="navbar-brand logo" href="#" style="margin-left:-11px">JNTUH-CEJ | SECURITY PORTAL</a></div>
+
+{% endif %}
+</nav>
+{% block content %}
+
+
+{% endblock content %}
+
+
+
+<footer class="page-footer font-small indigo">
+
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2020 Copyright
+<a> Developed by:
+<a href="https://varunofficial2509.github.io/">Varun Teja
+<a>and
+<a href="https://vodnalasricharan.github.io">Sricharan</a></a></a></a>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<!-- Footer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="{% static '/js/script.min.js' %}"></script>
+</body>
+
+</html>

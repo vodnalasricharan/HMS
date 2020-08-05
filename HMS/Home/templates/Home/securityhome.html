@@ -1,0 +1,72 @@
+{% extends 'Home/securitybase.html' %}
+{% load static %}
+{% block content %}
+<div style="margin-top:0px">
+<h3>Please stay logged in</h3>
+{% for message in messages %}
+{% if message.tags == 'success' %}
+<div class="alert alert-success" role="alert">
+{{message}}
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+{{message}}
+</div>
+{% endif %}
+{% endfor %}
+<style>
+#preview{
+width:315px;
+height: 500px;
+margin-left: 45px;
+
+}
+</style>
+<video id="preview" style="margin-left:23px"></video>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js
+" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js
+"></script>
+<script type="text/javascript">
+var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+scanner.addListener('scan',function(content){
+//alert(content);
+window.location.href=content;
+});
+Instascan.Camera.getCameras().then(function (cameras){
+if(cameras.length>0){
+scanner.start(cameras[0]);
+$('[name="options"]').on('change',function(){
+if($(this).val()==1){
+if(cameras[0]!=""){
+scanner.start(cameras[0]);
+}else{
+alert('No Front camera found!');
+}
+}else if($(this).val()==2){
+if(cameras[1]!=""){
+scanner.start(cameras[1]);
+}else{
+alert('No Back camera found!');
+}
+}
+});
+}else{
+console.error('No cameras found.');
+alert('No cameras found.');
+}
+}).catch(function(e){
+console.error(e);
+alert(e);
+});
+</script>
+<div class="btn-group btn-group-toggle mb-5" style = "margin-bottom : 5rem!important ; margin-left : 4rem" data-toggle="buttons">
+<label class="btn btn-primary active">
+<input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
+</label>
+<label class="btn btn-secondary">
+<input type="radio" name="options" value="2" autocomplete="off"> Back Camera
+</label>
+</div>
+
+{% endblock content %}

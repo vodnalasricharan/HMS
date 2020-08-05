@@ -1,0 +1,28 @@
+{% extends 'Home/caretakerbase.html' %}
+{% load static %}
+{% block content %}
+<h3 style=" text-align : left;margin-left : 16px; " >Caretaker Instructions</h3>
+<p>
+    <ul style = "margin : auto 20px;">
+
+        <li>After Logging In you are redirected to the “Submit Request” page.</li><br/>
+        <li>Here, you can see all the requests sent by students under your Hostel.</li><br/>
+        <li>Click on “Request Review” button to see all the information of a student who sent the request. (like Parent mobile number, Address, Out date, In date etc.).</li><br/>
+        <li>There you can verify the student details.</li><br/>
+        <li>After conforming with the parent, you can choose your option respectively. (Either Approve or Reject).</li><br/>
+        <li>You can list out students using Roll Number and year in pending request column.</li><br/>
+        <li>Once you accept, the student gets a QR Code and his info will be seen in the column - “Approved Requests”.</li><br/>
+        <li>Information of Students who are out of campus under the Type – “Day-Out” will be shown in separate column.</li><br/>
+        <li>All the students data who went out of campus is listed under “All records” Column. You can get records of a particular day by entering the date.</li><br/>
+        <li>You can also get data of particular branch or year by entering the year in given search bar.</li><br/>
+        <li>You can view student status in “Student Status” column.</li><br/>
+        <li>You can update your profile in Profile Column, Profile picture should of size less than 1mb.</li><br/>
+
+
+
+    </ul>
+
+</p>
+
+
+{% endblock content %}

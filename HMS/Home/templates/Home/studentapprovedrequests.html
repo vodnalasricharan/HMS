@@ -1,0 +1,40 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+<div style="margin-top:8px">
+<div class="">
+		<h3>Approved Requests</h3>
+
+		<div class="card card-body">
+
+			<table class="table table-sm">
+				<tr>
+					<th>Requests</th>
+					<th>Qr Code</th>
+					<th>Remove</th>
+
+				</tr>
+
+				{% for request in approved %}
+					<tr>
+						<td><strong>Type</strong> : {{request.type }}<br/>
+						<strong>Out Time</strong> : {{request.out_datetime }}<br/>
+							<strong>In Time</strong> :{{request.in_datetime }}<br/>
+							<strong>Status</strong> :{{ request.status }}<br/></td>
+
+							<td><a href="{{ request.qr_code.url }}">qrcode</a> </td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleterequest' request.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	</div>
+	</div>
+
+
+
+
+{% endblock content %}

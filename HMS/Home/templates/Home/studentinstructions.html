@@ -1,0 +1,135 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+<h3>Student Instructions</h3><br/>
+
+<h4 style = "margin-left : 16px"><strong>Update Profile</strong></h4><br/>
+
+<p style = "margin : auto 20px">     1.	After logging in, you are redirected to “Submit Request Page”.<br/><br/>
+                                     2.	Firstly, Update your Profile.<br/><br/>
+              <ul style = "margin : auto 20px">
+
+                        <li> To update the profile, click on “profile” from the bar on top left corner (Mobile View).</li><br/>
+                        <li> 	Click on the yellow bar which says “Update Profile”.</li><br/>
+                        <li>	Fill out the details correctly.</li><br/>
+                        <li>	Please mention a valid E-mail address, It’s used to send you a password reset link in case you forget password.</li><br/>
+                        <li>	Mention valid mobile numbers, without a valid mobile number your request will be rejected.</li><br/>
+    <li>	Choose a profile picture of around 1mb where your face is visible clearly, it will be verified by security.</li><br/>
+                        <li>	Click on “Submit” button.</li><br/>
+                        <li>	Your Profile gets updated! </li><br/>
+              </ul>
+</p>
+
+<h4 style = "margin-left : 16px; line-height: 1.2;">Instructions to Submit New Request:</h4>
+
+<p>
+<ul style = "margin : auto 20px">
+    <li>Select the type you required. Select “Home-Out” for home-out request and “Day-Out” for a day-out request.</li><br/>
+    <li>Set your Room number.</li><br/>
+    <li>Select Out-Date.</li><br/>
+    <li>Select Time. In Time slot you will be given 5 choices, Select according to your need and change if necessary.</li><br/>
+    <li>Same with “In-Date & Time”.</li><br/>
+    <li>Your Out-Date, Time and In-Date, Time should be given correctly. If not, your request will not be submitted. </li><br/>
+    <li>Give your reasons.</li><br/>
+    <li>Click on “Submit” button.</li><br/>
+    <li>If you fill the form correctly, your request gets submitted and you will get a message “Request Submitted” on your Screen.</li><br/>
+
+</ul>
+</p>
+
+<h4 style = "margin-left : 16px">Pending Requests:</h4>
+
+<p>
+    <ul style = "margin : auto 20px">
+
+    <li>You can view requests that are not yet reviewed by the respective caretaker under “Pending Requests” Column.</li><br/>
+    <li>You can delete your request by clicking on “Delete” button.</li>
+
+
+
+
+    </ul>
+
+</p>
+
+
+<h4 style = "margin-left : 16px">Approved Requests:</h4>
+
+<p>
+    <ul style = "margin : auto 20px">
+
+
+    <li>Requests accepted by Care Taker will be shown under “Approved Requests”.</li><br/>
+    <li>You will be given a QR Code.</li><br/>
+    <li>You can cancel your approved requests by Removing it.</li><br/>
+
+
+    </ul>
+
+</p>
+
+<h4 style = "margin-left : 16px">Active Requests:</h4>
+
+<p>
+    <ul style = "margin : auto 20px">
+
+
+    <li>Once your QR Code gets scanned by security, your Request will be shown in Active Request.</li><br/>
+    <li>You can Still view Your QR Code. This is used for getting into hostel again.</li><br/>
+
+
+
+    </ul>
+
+</p>
+
+
+<h4 style = "margin-left : 16px">Past Records:</h4>
+
+<p>
+    <ul style = "margin : auto 20px">
+
+
+    <li>Once your QR Code is scanned by security for the second time during the “in” ,  Your QR Code will get expired and your records will be shown in “Past Records”.</li><br/>
+    <li>All your past records will be shown here.</li><br/>
+
+
+
+    </ul>
+
+</p>
+
+<h4 style = "margin-left : 16px">Rejected Requests:</h4>
+
+<p>
+    <ul style = "margin : auto 20px">
+
+
+    <li>If your request gets rejected by any cause or reason, then you can view that in “Rejected Requests” column.</li><br/>
+
+
+
+
+    </ul>
+
+</p>
+
+<h3 style = "margin-left : 16px;
+    margin-right: 16px;
+    text-align: left;
+    line-height: 1.2;" >All You Need to Know about QR Code</h3><br/>
+
+<p>
+    <ul style = "margin : auto 20px">
+        <li>Once your request gets approved, You will be given QR Code.</li><br/>
+        <li>You need to show QR Code to the Security and get it scanned. (You will find this QR Code in Approved Request Column)</li><br/>
+        <li>And then you will be allowed to leave the campus.</li><br/>
+        <li>When you return, once again you need to get the QR Code scanned near the security. (You will find this QR Code in Active Request Column)</li><br/>
+        <li>And then you will be allowed to enter the campus.</li><br/>
+        <li>QR Code will automatically get deleted.</li><br/>
+    </ul>
+
+</p>
+
+
+{% endblock content %}

@@ -1,0 +1,81 @@
+{% extends 'Home/caretakerbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+<div style="margin-top : 100px ">
+<div class="container">
+	<h1>Review Request</h1>
+</div>
+</div>
+<div style="margin : 69px ">
+	<div class="container">
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+
+			<img class="profile-pic" src="{{ student.profile_pic.url }}" >
+
+		</div>
+	</div>
+	<div class="col-md-9">
+			{% for message in messages %}
+			{% if message.tags == 'success' %}
+			<div class="alert alert-success" role="alert">
+ 				{{message}}
+			</div>
+			{% else %}
+			<div class="alert alert-danger" role="alert">
+ 				{{message}}
+			</div>
+			{% endif %}
+	{% endfor %}
+
+		<div class="card card-body">
+			<p><label><strong>Name :</strong></label> {{ student.name }}</p>
+            <p><label><strong>Rollno :</strong> </label> {{ student.rollno }}</p>
+            <p><label><strong>Branch : </strong></label> {{ student.branch }}</p>
+			<p><label ><strong>Year:</strong></label> {{ student.year }}</p>
+            <p><label><strong>Email : </strong></label> {{ student.email }}</p>
+            <p><label><strong>Hostel : </strong></label> {{ student.hostel }}</p>
+			<p><label><strong>Father Name : </strong></label>{{ student.father_name }}</p>
+			<p><label><strong>Father Mobile no : </strong></label>  <a href="tel: {{ student.father_mobile_no }}" >{{ student.father_mobile_no }}</a></p>
+            <p><label><strong>Timing to contact : </strong></label>{{ appeal.timings }}</p>
+			<p><label><strong>Mobile no : </strong></label> {{ student.mobile_no }}</p>
+            <p><label><strong>Type : </strong></label>{{ appeal.type }}</p>
+            <p><label><strong>Out date&time : </strong></label>{{ appeal.out_datetime }}</p>
+            <p><label><strong>In date&time : </strong></label>{{ appeal.in_datetime }}</p>
+            <p><label><strong>Room no : </strong></label>{{ appeal.room_no }}</p>
+            <p><label><strong>Reason : </strong></label>{{ appeal.reason }}</p>
+            <p><label><strong>Status : </strong></label>{{ appeal.status }}</p>
+			<form action="" method="POST">
+				{% csrf_token %}
+
+
+
+
+				<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-8">
+    <button id="submit" name="submit" class="btn btn-sm btn-success" value="1">Approve</button>
+    <button id="cancel" name="cancel" class="btn btn-sm btn-danger" value="1">Reject</button>
+  </div>
+</div>
+
+			</form>
+
+
+
+		</div>
+	</div>
+</div>
+
+	</div>
+</div>
+{% endblock content %}
