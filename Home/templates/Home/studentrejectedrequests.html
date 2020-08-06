@@ -1,0 +1,51 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+<div style="margin-top:8px">
+<div class="">
+		<h3>Rejected Requests</h3>
+
+		<div class="card card-body">
+
+			<table class="table table-sm">
+				<tr>
+					<th>Requests</th>
+					<th>Remove</th>
+
+				</tr>
+
+				{% for request in rejected %}
+					<tr>
+						<td><strong>type </strong> : {{request.type }}<br/>
+							<strong>out</strong> : {{request.out_datetime }}<br/>
+							<strong>In</strong> :{{request.in_datetime }}<br/>
+							<strong>Status</strong> : {{ request.status }}</td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleterequest' request.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	<div class="pagination" >
+		<span class="step-links" align="center">
+			{% if rejected.has_previous %}
+			<a href="?{{ page_request_var }}={{ rejected.previous_page_number }}">previous</a>
+			{% endif %}
+			<span class="current">
+				Page {{ rejected.number }} of {{ rejected.paginator.num_pages }}
+			</span>
+			{% if rejected.has_next %}
+			<a href="?{{ page_request_var }}={{ rejected.next_page_number }}">next</a>
+			{% endif %}
+		</span>
+	</div>
+	</div>
+	</div>
+
+
+
+
+{% endblock content %}

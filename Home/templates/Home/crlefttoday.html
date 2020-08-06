@@ -1,0 +1,63 @@
+{% extends 'Home/caretakerbase.html' %}
+{% load static %}
+{% block content %}
+<div style="margin : 8px ">
+
+<div class="">
+	<h3> Students Left </h3>
+
+		<hr>
+	<div class="card card-body">
+
+         <form method="get">             {{myFilter.form}}
+
+          <button class="btn btn-sm btn-primary" type="submit">Search</button>         </form>
+
+      </div>
+		<div class="card card-body">
+
+			<table class="table table-sm">
+				<tr>
+					<th>Student Info</th>
+
+				</tr>
+
+				{% for request in requests %}
+					<tr>
+						<td><strong>Student</strong> : <strong>{{ request.student }}</strong><br/>
+						<strong>Type</strong> : {{ request.type }}<br/>
+							<strong>Branch</strong> : {{ request.branch }}<br/>
+							<strong>Year</strong> : {{ request.year }}<br/>
+
+
+						<strong>Status</strong> : {{ request.status }}<br/>
+							<strong>Actual Out date&time</strong> : {{ request.actual_out }}<br/>
+							<strong>Date Arriving</strong> : {{ request.in_datetime }}<br/>
+						<strong>Father Mobile</strong> : {{ request.father_mobile_no }}</td>
+
+
+					</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	<div class="pagination" >
+		<span class="step-links" align="center">
+			{% if requests.has_previous %}
+			<a href="?{{ page_request_var }}={{ requests.previous_page_number }}">previous</a>
+			{% endif %}
+			<span class="current">
+				Page {{ requests.number }} of {{ requests.paginator.num_pages }}
+			</span>
+			{% if requests.has_next %}
+			<a href="?{{ page_request_var }}={{ requests.next_page_number }}">next</a>
+			{% endif %}
+		</span>
+	</div>
+	</div>
+
+
+</div>
+
+{% endblock content %}

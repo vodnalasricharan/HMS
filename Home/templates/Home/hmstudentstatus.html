@@ -1,0 +1,61 @@
+{% extends 'Home/HMbase.html' %}
+{% load static %}
+{% block content %}
+
+<div style="margin : 8px ">
+
+<div class="">
+	<h3>Student Status</h3>
+	<div class="card card-body">
+
+         <form method="get">             {{myFilter.form}}
+
+          <button class="btn btn-sm btn-primary" type="submit">Search</button>         </form>
+
+      </div>
+
+
+		<div class="card card-body">
+
+			<table class="table table-sm">
+				<tr>
+					<th>Student Info</th>
+                    <th>Status</th>
+
+				</tr>
+
+				{% for student in students %}
+					<tr>
+						<td><strong>Student</strong> : <strong>{{ student.name }}</strong><br/>
+						<strong>Roll no</strong> : {{ student.rollno }}<br/>
+                            <strong>Hostel</strong> : {{ student.hostel }}<br/>
+							<strong>Branch</strong> : {{ student.branch }}<br/>
+							<strong>Year</strong> : {{ student.year }}<br/>
+                        </td>
+                        <td>{{ student.student_status }}</td>
+
+					</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	<div class="pagination" >
+		<span class="step-links" align="center">
+			{% if students.has_previous %}
+			<a href="?{{ page_request_var }}={{ students.previous_page_number }}">previous</a>
+			{% endif %}
+			<span class="current">
+				Page {{ students.number }} of {{ students.paginator.num_pages }}
+			</span>
+			{% if students.has_next %}
+			<a href="?{{ page_request_var }}={{ students.next_page_number }}">next</a>
+			{% endif %}
+		</span>
+	</div>
+	</div>
+
+
+</div>
+
+{% endblock content %}
