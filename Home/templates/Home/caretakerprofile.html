@@ -1,0 +1,40 @@
+{% extends 'Home/caretakerbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+<div style="margin : 100px ">
+<br>
+<div class="row" >
+	<div class="col-md-3">
+		<div class="card card-body">
+
+			<h3 style="text-align: center">Account Settings</h3>
+
+			<img class="profile-pic" src="{{ request.user.staff.profile_pic.url }}" >
+			<a class="btn btn-warning" href="{% url 'caretakerupdateprofile' %}" style="color: #ffffff;background-color: #007bff;border-color: #007bff;"> Update Profile</a>
+
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="card card-body">
+
+			<form action="" enctype="multipart/form-data">
+				<p><label><strong>Name: </strong></label> {{ staff.name }}</p>
+				<p><label ><strong>Email: </strong></label> {{ staff.email }}</p>
+				<p><label ><strong>Designation: </strong></label> {{ staff.designation }}</p>
+				<p><label><strong>Hostel: </strong></label>{{ staff.hostel }}</p>
+				<a href="{% url 'crinstructions' %}"><tiny>Click Here For Instructions</tiny></a>
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>
+{% endblock content %}

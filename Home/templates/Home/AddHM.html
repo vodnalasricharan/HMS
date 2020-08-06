@@ -1,0 +1,26 @@
+{% extends 'Home/HMbase.html' %}
+{% load static %}
+{% block content %}
+<!-- Start: Registration Form with Photo -->
+    <div class="register-photo" style="margin-top: 0pxpx;background: url({% static '/images/7f22bd1107b49b5eac20ce21b80d6489.jpg' %});height: 710px;">
+        <h1 style="text-align: center;font-style: normal;margin-bottom: 35px;color: rgb(255,255,255);">Add Hostel Manager</h1>
+        <!-- Start: Form Container -->
+        <div class="form-container">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-group"><input class="form-control"  name="username" placeholder="User Name"></div>
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password1" placeholder="Password"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password2" placeholder="Password (repeat)"></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(70,135,250);">Create</button></div>
+                {{form.errors}}
+                {% for message in messages %}
+                <p id="messages"><strong>{{message}}</strong></p>
+				{% endfor %}
+            </form>
+        </div>
+
+        <!-- End: Form Container -->
+    </div>
+    <!-- End: Registration Form with Photo -->
+{% endblock content %}

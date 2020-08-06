@@ -1,0 +1,89 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+{% if student.student_status == 'In' %}
+
+
+  <!-- Date Time Picker JS -->
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script type="text/javascript" src="{% static '/admin/js/core.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static '/admin/css/widgets.css' %}">
+<style>.calendar>table>caption{caption-side:unset}</style><!--caption fix for bootstrap4-->
+{{ form.media }}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+
+
+
+<div style="margin-top : 100px ">
+<div class="container">
+	<h1>Submit Request</h1>
+
+</div>
+</div>
+<div style="margin : 80px ">
+	<div class="container">
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+
+			<img class="profile-pic" src="{{ student.profile_pic.url }}" >
+
+		</div>
+	</div>
+	<div class="col-md-6">
+			{% for message in messages %}
+			{% if message.tags == 'success' %}
+			<div class="alert alert-success" role="alert">
+ 				{{message}}
+			</div>
+			{% else %}
+			<div class="alert alert-danger" role="alert">
+ 				{{message}}
+			</div>
+			{% endif %}
+	{% endfor %}
+		<div class="card card-body">
+			<p><label><strong>Name :</strong></label> {{ student.name }}</p>
+			<p><label><strong>Rollno :</strong> </label> {{ student.rollno }}</p>
+            <p><label><strong>Branch :</strong></label> {{ student.branch }}</p>
+			<p><label><strong>Year:</strong></label> {{ student.year }}</p>
+            <p><label><strong>Email :</strong></label> {{ student.email }}</p>
+            <p><label><strong>Hostel :</strong></label> {{ student.hostel }}</p>
+            <p><label><strong>Father Name :</strong></label> {{ student.father_name }}</p>
+            <p><label><strong>Father Mobile no :</strong></label> {{ student.father_mobile_no }}</p>
+            <p><label><strong>Mobile no : </strong></label> {{ student.mobile_no }}</p>
+			<form action="" method="POST">
+				{% csrf_token %}
+
+				{{ form.as_p }}
+
+
+
+				<input class="btn btn-primary" type="submit" name="Submit"><br/><br/>
+				<a href="{% url 'studentinstructions' %}"><tiny><strong>Click Here For Instructions</strong></tiny></a>
+
+			</form>
+
+
+		</div>
+	</div>
+</div>
+
+	</div>
+</div>
+		{% else %}
+
+		<h3>You are Outside Hostel,cannot place Request</h3>
+		{% endif %}
+
+
+
+{% endblock content %}

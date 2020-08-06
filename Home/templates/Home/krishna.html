@@ -1,0 +1,25 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block content %}
+<div style="margin-top : 100px ">
+<h1>Krishna Boys Hostel</h1>
+</div>
+    <div class="row">
+	<div class="col" align="center">
+		<div class="col-md-3" style="width : 300px">
+			<div class="card text-center text-red  mb-3" id="total-orders">
+			  	<div class="card-header">
+                    <h5 class="card-title">Total Students</h5>
+                <div class="card-body">
+                    <h3 class="card-title">{{total}}</h3></div></div>
+                    <div class="card-header">
+                    <h5 class="card-title">Inside Hostel</h5>
+                        <div class="card-body">
+                            <h3 class="card-title">{{inside}}</h3></div>
+			  	</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content%}

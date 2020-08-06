@@ -1,0 +1,42 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Start: Registration Form with Photo -->
+    <div class="register-photo" style="margin-top: 0px;background: url({% static '/images/7f22bd1107b49b5eac20ce21b80d6489.jpg' %});height: 850px;">
+        <h1 style="text-align: center;font-style: normal;margin-bottom: 35px;color: rgb(255,255,255);">Student Registration</h1>
+        <!-- Start: Form Container -->
+        <div class="form-container">
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                <div class="form-group"><input class="form-control"  name="username" placeholder="Roll no"></div>
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><select class="form-control" id="sel1" name="hostel">
+                    <option value="Godavari">Godavari Boys Hostel</option>
+                    <option value="krishna">Krishna Boys Hostel</option>
+                    <option value="sharadha">Sharadha Girls Hostel</option>
+                    <option value="saraswathi">Saraswathi Girls Hostel</option>
+                </select></div>
+                <div class="form-group"><select class="form-control" id="sel1" name="branch">
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option>
+                    <option value="EEE">EEE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="ECE">ECE</option>
+                </select></div>
+                <div class="form-group"><input class="form-control" type="password" name="password1" placeholder="Password"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password2" placeholder="Password (repeat)"></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(70,135,250);">Sign Up</button></div>
+                {{form.errors}}
+                <a class="already" href="{% url 'studentlogin' %}">You already have an account? Login here.</a>
+                 {% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
+            </form>
+        </div>
+
+        <!-- End: Form Container -->
+    </div>
+
+    <!-- End: Registration Form with Photo -->
+{% endblock content %}

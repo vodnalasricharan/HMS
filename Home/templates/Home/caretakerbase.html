@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>JNTUH-CEJ | HOSTEL PORTAL</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="{% static '/css/styles.min.css' %}">
+<link rel="shortcut icon" href="{% static '/images/jntuhlogo.png' %}" >
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="/">JNTUH-CEJ | HOSTEL PORTAL</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Requests</a>
+                        <div class="dropdown-menu" role="menu">
+
+                            <a class="dropdown-item" role="presentation" href="{% url 'Home' %}">Pending Requests</a>
+                            <a class="dropdown-item" role="presentation" href="{% url 'crapprovedrequests' %}">Approved Requests</a>
+                            <a class="dropdown-item" role="presentation" href="{% url 'activedayout' %}">On Day-Out</a>
+                            <a class="dropdown-item" role="presentation" href="{% url 'crlefttoday' %}">Out Records</a>
+                            <a class="dropdown-item" role="presentation" href="{% url 'crarrivedtoday' %}">In Records</a>
+                            <a class="dropdown-item" role="presentation" href="{% url 'crstudentstatus' %}">Know Student status</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url 'caretakerprofile'  %}">Profile</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+
+
+
+
+                </div>
+        </div>
+        </div>
+    </nav>
+{% block content %}
+
+    {% endblock content %}
+
+
+
+<footer class="page-footer font-small indigo">
+
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright
+    <a> Developed by:
+      <a href="https://varunofficial2509.github.io/">Varun Teja
+      <a>and
+      <a href="https://vodnalasricharan.github.io">Sricharan</a></a></a></a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="{% static '/js/script.min.js' %}"></script>
+</body>
+
+</html>

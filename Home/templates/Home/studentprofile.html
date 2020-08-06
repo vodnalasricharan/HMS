@@ -1,0 +1,46 @@
+{% extends 'Home/studentbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 14px auto;
+		border-radius: 50%;
+	}
+</style>
+<div style="margin : 100px ">
+<br>
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+
+			<h3 style="text-align: center">Account Settings</h3>
+
+			<img class="profile-pic" src="{{ request.user.student.profile_pic.url }}">
+			<a class="btn btn-warning" href="{% url 'studentupdateprofile'  %}" style="background-color: #007bff;
+    border-color: #007bff;color: #ffffff;"> Update Profile</a>
+
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="card card-body">
+
+			<form  action="" enctype="multipart/form-data">
+
+				<p><label><strong>Name:</strong></label> {{ student.name }}</p>
+				<p><label ><strong>Email:</strong></label> {{ student.email }}</p>
+				<p><label ><strong>Branch:</strong></label> {{ student.branch }}</p>
+				<p><label ><strong>Year:</strong></label> {{ student.year }}</p>
+				<p><label><strong>Hostel:</strong></label>{{ student.hostel }}</p>
+				<p><label ><strong>Rollno:</strong></label> {{ student.rollno }}</p>
+				<p><label ><strong>Father name:</strong></label> {{ student.father_name }}</p>
+				<p><label ><strong>Father mobile no:</strong></label> {{ student.father_mobile_no }}</p>
+				<p><label ><strong>Mobile no:</strong></label> {{ student.mobile_no }}</p>
+				<p><label ><strong>Address:</strong></label> {{ student.address }}</p>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'Home/securitybase.html' %}
+{% load static %}
+{% block content %}
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+<div style="margin-top : 100px ">
+<div class="container">
+	<h3 style="text-align: center" > Request </h3>
+</div>
+</div>
+<div style="margin : 60px ">
+	<div class="container">
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+
+			<img class="profile-pic" src="{{ student.profile_pic.url }}" >
+
+		</div>
+	</div>
+	<div class="col-md-6">
+			{% for message in messages %}
+			{% if message.tags == 'success' %}
+			<div class="alert alert-success" role="alert">
+ 				{{message}}
+			</div>
+			{% else %}
+			<div class="alert alert-danger" role="alert">
+ 				{{message}}
+			</div>
+			{% endif %}
+	{% endfor %}
+
+		<div class="card card-body">
+            <p><label>Name :</label> {{ student.name }}</p>
+            <p><label>Rollno : </label> {{ student.rollno }}</p>
+            <p><label>Branch : </label> {{ student.branch }}</p>
+			<p><label >Year:</label> {{ student.year }}</p>
+            <p><label>Email : </label> {{ student.email }}</p>
+            <p><label>Hostel : </label> {{ student.hostel }}</p>
+            <p><label>Father Name : </label> {{ student.father_name }}</p>
+            <p><label>Father Mobile no : </label> {{ student.father_mobile_no }}</p>
+            <p><label>Mobile no : </label> {{ student.mobile_no }}</p>
+            <p><label>Type : </label>{{ appeal.type }}</p>
+            <p><label>Out date&time : </label>{{ appeal.out_datetime }}</p>
+            <p><label>In date&time : </label>{{ appeal.in_datetime }}</p>
+            <p><label>Room no : </label>{{ appeal.room_no }}</p>
+            <p><label>Reason : </label>{{ appeal.reason }}</p>
+            <p><label>Status : </label>{{ appeal.status }}</p>
+            <p><label>Approved by : </label>{{ appeal.staff }}</p>
+			<form  method="POST">
+				{% csrf_token %}
+				{% if student.student_status == 'In' %}
+				<input class="btn btn-sm btn-success" type="submit" value="OUT">
+				{% else  %}
+				<input class="btn btn-sm btn-success" type="submit" value="IN">
+				{% endif %}
+			</form>
+
+
+
+		</div>
+	</div>
+</div>
+
+	</div>
+</div>
+
+{% endblock content %}

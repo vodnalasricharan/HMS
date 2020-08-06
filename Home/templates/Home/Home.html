@@ -1,0 +1,45 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block content %}
+<main class="page lanidng-page">
+        <section class="portfolio-block block-intro" style="padding-bottom:0px">
+            <div class="container">
+                <div class="avatar" ><a href="https:/jntuhcej.ac.in"><img  src="{% static '/images/jntuhlogo.png' %}" style="width: 134px;"> </a></div>
+                <h1></h1>
+                <div class="about-me">
+                    <p><br><strong>JNTUH College of Engineering Jagtial (JNTUHCEJ)</strong><br>was established in the year 2007 as a constituent college of<br>Jawaharlal Nehru Technological University Hyderabad,<br>recognized by UGC under Section 2(f) &amp; 12(B) of the UGC Act,1956.<br><strong>Accredited by NBA (Accredited Programmes - UG : EEE, ME, CSE )</strong><br><br></p>
+                </div>
+            </div>
+        </section>
+
+<div class="row" style="margin-right: 0px;">
+	<div class="col" align="center">
+		<div class="col-md-3" style="width : 300px; margin-left:104px;">
+			<div class="card text-center text-red  mb-3" id="total-orders">
+			  	<div class="card-header">
+                    <h5 class="card-title">Total Students</h5>
+                <div class="card-body">
+                    <h3 class="card-title">{{total}}</h3></div></div>
+                    <div class="card-header">
+                    <h5 class="card-title">Inside Hostel</h5>
+                        <div class="card-body">
+                            <h3 class="card-title">{{inside}}</h3></div>
+			  	</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+        <section class="portfolio-block photography">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="{% static '/images/home2.jpg' %}"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="{% static '/images/image21.jpg' %}" style="margin-top: 0px;height: 277px;"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="{% static '/images/hostel.jpg' %}"></a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
+
+
