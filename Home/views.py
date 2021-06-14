@@ -20,6 +20,9 @@ import pytz
 from .filters import *
 from django.core.mail import send_mail
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+import pyqrcode
+import png
+from pyqrcode import QRCode
 
 utc=pytz.UTC
 
@@ -538,9 +541,9 @@ def viewrequest(request,pk):
         else:
             appeal.status='approved'
             appeal.staff= crname
-            qrcode_img = qrcode.make('http://'+str(request.META['HTTP_HOST'])+'/security_check/'+str(appeal.id))
+            qrcode_img = pyqrcode.create('http://'+str(request.META['HTTP_HOST'])+'/security_check/'+str(appeal.id))
             fname=str(appeal.id)+'.png'
-            qrcode_img.save(settings.MEDIA_ROOT+'/qr_codes/'+fname)
+            qrcode_img.png(settings.MEDIA_ROOT+'/qr_codes/'+fname,scale = 6)
             appeal.qr_code='qr_codes/'+fname
             appeal.save()
         return redirect('/')
