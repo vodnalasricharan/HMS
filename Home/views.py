@@ -766,3 +766,9 @@ def contact_us(request):
         form = ContactForm()
 
     return render(request, 'Home/contact-us.html', {'form': form})
+
+
+################################################################### Account details ######################################
+
+def accountdetails(request):
+    return render(request,'Home/account_details.html')
