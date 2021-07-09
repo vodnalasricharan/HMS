@@ -541,7 +541,7 @@ def viewrequest(request,pk):
         else:
             appeal.status='approved'
             appeal.staff= crname
-            qrcode_img = pyqrcode.create('http://'+str(request.META['HTTP_HOST'])+'/security_check/'+str(appeal.id))
+            qrcode_img = pyqrcode.create(str(request.scheme)+'://'+str(request.META['HTTP_HOST'])+'/security_check/'+str(appeal.id))
             fname=str(appeal.id)+'.png'
             qrcode_img.png(settings.MEDIA_ROOT+'/qr_codes/'+fname,scale = 6)
             appeal.qr_code='qr_codes/'+fname
