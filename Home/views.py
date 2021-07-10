@@ -752,15 +752,19 @@ def securitycheck(request,pk):
 
 def contact_us(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            # send email code goes here
-            sender_name = form.cleaned_data['name']
-            sender_email = form.cleaned_data['email']
+        try:
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                # send email code goes here
+                sender_name = form.cleaned_data['name']
+                sender_email = form.cleaned_data['email']
 
-            message = "{0} has sent you a new message:\n\n{1} \n\nfrom {2}".format(sender_name, form.cleaned_data['message'],sender_email)
-            send_mail('JNTUHCEJ HOSTEL PORTAL', message, sender_email, ['vodnalasricharan@gmail.com','varunteja200025@gmail.com'])
-            messages.success(request,'Your Query has been sent')
+                message = "{0} has sent you a new message:\n\n{1} \n\nfrom {2}".format(sender_name, form.cleaned_data['message'],sender_email)
+                send_mail('JNTUHCEJ HOSTEL PORTAL', message, sender_email, ['vodnalasricharan@gmail.com','varunteja200025@gmail.com'])
+                messages.success(request,'Your Query has been sent')
+                return redirect('contactus')
+        except:
+            messages.warning(request,'Some Unknown error occured.We are trying to resolve it.')
             return redirect('contactus')
     else:
         form = ContactForm()
